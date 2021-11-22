@@ -1,0 +1,30 @@
+{
+  "name": "my-fake-json-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc-first-build": "tsc",
+    "tsc-clean": "tsc --build --clean",
+    "watch-tsc": "tsc -w",
+    "watch-deploy": "nodemon dist/index.js",
+    "server": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\"",
+    "deploy": "node dist/index.js",
+    "start": "npm run deploy"
+  },
+  "keywords": [],
+  "author": "Alexander Pedenko",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.6",
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
