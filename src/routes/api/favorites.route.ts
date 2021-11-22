@@ -5,20 +5,20 @@ export const favoritesRouter: Router = Router();
 
 favoritesRouter.get(
   '/',
-  favoritesController.getCartProducts.bind(favoritesController)
+  favoritesController.getFavoritesProducts.bind(favoritesController)
 );
 
 favoritesRouter.post(
   '/',
-  favoritesController.addProductToCart.bind(favoritesController)
+  favoritesController.addProductToFavorites.bind(favoritesController)
 );
 
 favoritesRouter.delete(
   '/',
-  favoritesController.deleteAllCartProducts.bind(favoritesController)
+  favoritesController.deleteAllFavoritesProducts.bind(favoritesController)
 );
 
 favoritesRouter.delete(
   '/:id',
-  favoritesController.deleteCartProductById.bind(favoritesController)
+  favoritesController.deleteFavoritesProductById.bind(favoritesController)
 );

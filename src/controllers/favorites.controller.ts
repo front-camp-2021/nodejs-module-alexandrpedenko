@@ -4,7 +4,7 @@ import { FavoritesService } from '../services/favorites.service';
 class FavoritesController {
   constructor(private favoritesService: FavoritesService) {}
 
-  async getCartProducts(req: Request, res: Response, next: NextFunction) {
+  async getFavoritesProducts(req: Request, res: Response, next: NextFunction) {
     try {
       const favoritesProducts =
         await this.favoritesService.fetchAllFavoritesProducts();
@@ -15,28 +15,35 @@ class FavoritesController {
     }
   }
 
-  async addProductToCart(req: Request, res: Response, next: NextFunction) {
+  async addProductToFavorites(req: Request, res: Response, next: NextFunction) {
     try {
-      const cartProducts = await this.favoritesService.postFavoritesProduct(
-        req
-      );
-      res.json(cartProducts);
+      const favoritesProducts =
+        await this.favoritesService.postFavoritesProduct(req);
+      res.json(favoritesProducts);
     } catch (error) {
       next(error);
     }
   }
 
-  async deleteCartProductById(req: Request, res: Response, next: NextFunction) {
+  async deleteFavoritesProductById(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
     try {
-      const cartProducts =
+      const favoritesProducts =
         await this.favoritesService.deleteFavoritesProductById(req);
-      res.json(cartProducts);
+      res.json(favoritesProducts);
     } catch (error) {
       next(error);
     }
   }
 
-  async deleteAllCartProducts(req: Request, res: Response, next: NextFunction) {
+  async deleteAllFavoritesProducts(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
     try {
       await this.favoritesService.deleteAllFavoritesProducts();
 
